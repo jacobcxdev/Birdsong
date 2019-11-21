@@ -3,19 +3,42 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		168797A023833FFA003F9072 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 1687979F23833FFA003F9072 /* Swifter */; };
+		168797A623834015003F9072 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 168797A523834015003F9072 /* URLImage */; };
+		168797A92383403C003F9072 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 168797A82383403C003F9072 /* TinyConstraints */; };
+		168797AC2383404A003F9072 /* ActiveLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 168797AB2383404A003F9072 /* ActiveLabel */; };
+		168797B1238340A3003F9072 /* TwitterSentimentClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 168797B0238340A2003F9072 /* TwitterSentimentClassifier.mlmodel */; };
+		168797DD23849B83003F9072 /* TweetListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168797DC23849B83003F9072 /* TweetListTableViewController.swift */; };
+		168797DF2384A077003F9072 /* TweetListTableViewControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168797DE2384A077003F9072 /* TweetListTableViewControllerView.swift */; };
 		16C103D82382F59500DD38B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103D72382F59500DD38B9 /* AppDelegate.swift */; };
 		16C103DA2382F59500DD38B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103D92382F59500DD38B9 /* SceneDelegate.swift */; };
 		16C103DC2382F59500DD38B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103DB2382F59500DD38B9 /* ContentView.swift */; };
 		16C103DE2382F59600DD38B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16C103DD2382F59600DD38B9 /* Assets.xcassets */; };
 		16C103E12382F59600DD38B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16C103E02382F59600DD38B9 /* Preview Assets.xcassets */; };
 		16C103E42382F59600DD38B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16C103E22382F59600DD38B9 /* LaunchScreen.storyboard */; };
+		16C103EF2382F6D600DD38B9 /* TweetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103EE2382F6D600DD38B9 /* TweetListView.swift */; };
+		16C103F12382F70400DD38B9 /* TweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103F02382F70400DD38B9 /* TweetView.swift */; };
+		16C103F32382F71500DD38B9 /* ActiveLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103F22382F71500DD38B9 /* ActiveLabelView.swift */; };
+		16C103F52382F72400DD38B9 /* ActiveLabelContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103F42382F72300DD38B9 /* ActiveLabelContainerView.swift */; };
+		16C103F72382F73B00DD38B9 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103F62382F73B00DD38B9 /* WebView.swift */; };
+		16C103F92382F74F00DD38B9 /* PredictionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103F82382F74F00DD38B9 /* PredictionManager.swift */; };
+		16C103FB2382F76800DD38B9 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103FA2382F76800DD38B9 /* Prediction.swift */; };
+		16C103FD2382F77700DD38B9 /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103FC2382F77700DD38B9 /* Sentiment.swift */; };
+		16C103FF2382F78600DD38B9 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103FE2382F78600DD38B9 /* Tweet.swift */; };
+		16C104012382F79C00DD38B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C104002382F79C00DD38B9 /* User.swift */; };
+		16C104032382F7C400DD38B9 /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C104022382F7C400DD38B9 /* KeyboardGuardian.swift */; };
+		16C104052382F7D700DD38B9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C104042382F7D700DD38B9 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		168797B0238340A2003F9072 /* TwitterSentimentClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TwitterSentimentClassifier.mlmodel; sourceTree = SOURCE_ROOT; };
+		168797D623846DF7003F9072 /* Birdsong.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Birdsong.entitlements; sourceTree = "<group>"; };
+		168797DC23849B83003F9072 /* TweetListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListTableViewController.swift; sourceTree = "<group>"; };
+		168797DE2384A077003F9072 /* TweetListTableViewControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListTableViewControllerView.swift; sourceTree = "<group>"; };
 		16C103D42382F59500DD38B9 /* Birdsong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birdsong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16C103D72382F59500DD38B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16C103D92382F59500DD38B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +47,18 @@
 		16C103E02382F59600DD38B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		16C103E32382F59600DD38B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16C103E52382F59600DD38B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16C103EE2382F6D600DD38B9 /* TweetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListView.swift; sourceTree = "<group>"; };
+		16C103F02382F70400DD38B9 /* TweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetView.swift; sourceTree = "<group>"; };
+		16C103F22382F71500DD38B9 /* ActiveLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveLabelView.swift; sourceTree = "<group>"; };
+		16C103F42382F72300DD38B9 /* ActiveLabelContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveLabelContainerView.swift; sourceTree = "<group>"; };
+		16C103F62382F73B00DD38B9 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		16C103F82382F74F00DD38B9 /* PredictionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionManager.swift; sourceTree = "<group>"; };
+		16C103FA2382F76800DD38B9 /* Prediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
+		16C103FC2382F77700DD38B9 /* Sentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
+		16C103FE2382F78600DD38B9 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		16C104002382F79C00DD38B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		16C104022382F7C400DD38B9 /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
+		16C104042382F7D700DD38B9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +66,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				168797A623834015003F9072 /* URLImage in Frameworks */,
+				168797AC2383404A003F9072 /* ActiveLabel in Frameworks */,
+				168797A023833FFA003F9072 /* Swifter in Frameworks */,
+				168797A92383403C003F9072 /* TinyConstraints in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		168797AD23834082003F9072 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				16C103D72382F59500DD38B9 /* AppDelegate.swift */,
+				16C103D92382F59500DD38B9 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		168797AF23834093003F9072 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				168797B0238340A2003F9072 /* TwitterSentimentClassifier.mlmodel */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		168797DB23849B45003F9072 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				168797DC23849B83003F9072 /* TweetListTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		16C103CB2382F59500DD38B9 = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +120,13 @@
 		16C103D62382F59500DD38B9 /* Birdsong */ = {
 			isa = PBXGroup;
 			children = (
-				16C103D72382F59500DD38B9 /* AppDelegate.swift */,
-				16C103D92382F59500DD38B9 /* SceneDelegate.swift */,
-				16C103DB2382F59500DD38B9 /* ContentView.swift */,
+				168797D623846DF7003F9072 /* Birdsong.entitlements */,
+				168797AD23834082003F9072 /* Application */,
+				16C103EC2382F6B800DD38B9 /* Model */,
+				168797DB23849B45003F9072 /* Controller */,
+				16C103EB2382F6AC00DD38B9 /* View */,
+				16C103ED2382F6BD00DD38B9 /* Utilities */,
+				168797AF23834093003F9072 /* Resources */,
 				16C103DD2382F59600DD38B9 /* Assets.xcassets */,
 				16C103E22382F59600DD38B9 /* LaunchScreen.storyboard */,
 				16C103E52382F59600DD38B9 /* Info.plist */,
@@ -75,6 +143,41 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		16C103EB2382F6AC00DD38B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				16C103DB2382F59500DD38B9 /* ContentView.swift */,
+				16C103EE2382F6D600DD38B9 /* TweetListView.swift */,
+				16C103F02382F70400DD38B9 /* TweetView.swift */,
+				16C103F22382F71500DD38B9 /* ActiveLabelView.swift */,
+				16C103F42382F72300DD38B9 /* ActiveLabelContainerView.swift */,
+				16C103F62382F73B00DD38B9 /* WebView.swift */,
+				168797DE2384A077003F9072 /* TweetListTableViewControllerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		16C103EC2382F6B800DD38B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				16C103F82382F74F00DD38B9 /* PredictionManager.swift */,
+				16C103FA2382F76800DD38B9 /* Prediction.swift */,
+				16C103FC2382F77700DD38B9 /* Sentiment.swift */,
+				16C104002382F79C00DD38B9 /* User.swift */,
+				16C103FE2382F78600DD38B9 /* Tweet.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		16C103ED2382F6BD00DD38B9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				16C104022382F7C400DD38B9 /* KeyboardGuardian.swift */,
+				16C104042382F7D700DD38B9 /* Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,12 +188,19 @@
 				16C103D02382F59500DD38B9 /* Sources */,
 				16C103D12382F59500DD38B9 /* Frameworks */,
 				16C103D22382F59500DD38B9 /* Resources */,
+				168797E02384A79E003F9072 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Birdsong;
+			packageProductDependencies = (
+				1687979F23833FFA003F9072 /* Swifter */,
+				168797A523834015003F9072 /* URLImage */,
+				168797A82383403C003F9072 /* TinyConstraints */,
+				168797AB2383404A003F9072 /* ActiveLabel */,
+			);
 			productName = Birdsong;
 			productReference = 16C103D42382F59500DD38B9 /* Birdsong.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +229,12 @@
 				Base,
 			);
 			mainGroup = 16C103CB2382F59500DD38B9;
+			packageReferences = (
+				1687979E23833FF9003F9072 /* XCRemoteSwiftPackageReference "Swifter" */,
+				168797A423834015003F9072 /* XCRemoteSwiftPackageReference "url-image" */,
+				168797A72383403C003F9072 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+				168797AA2383404A003F9072 /* XCRemoteSwiftPackageReference "ActiveLabel" */,
+			);
 			productRefGroup = 16C103D52382F59500DD38B9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,13 +257,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		168797E02384A79E003F9072 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nTAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		16C103D02382F59500DD38B9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16C104012382F79C00DD38B9 /* User.swift in Sources */,
 				16C103D82382F59500DD38B9 /* AppDelegate.swift in Sources */,
+				16C103F72382F73B00DD38B9 /* WebView.swift in Sources */,
+				16C103F92382F74F00DD38B9 /* PredictionManager.swift in Sources */,
+				16C103FF2382F78600DD38B9 /* Tweet.swift in Sources */,
+				16C104032382F7C400DD38B9 /* KeyboardGuardian.swift in Sources */,
+				16C103FD2382F77700DD38B9 /* Sentiment.swift in Sources */,
+				16C103F32382F71500DD38B9 /* ActiveLabelView.swift in Sources */,
+				16C103F52382F72400DD38B9 /* ActiveLabelContainerView.swift in Sources */,
 				16C103DA2382F59500DD38B9 /* SceneDelegate.swift in Sources */,
+				16C104052382F7D700DD38B9 /* Extensions.swift in Sources */,
+				16C103EF2382F6D600DD38B9 /* TweetListView.swift in Sources */,
+				16C103F12382F70400DD38B9 /* TweetView.swift in Sources */,
+				168797B1238340A3003F9072 /* TwitterSentimentClassifier.mlmodel in Sources */,
+				168797DF2384A077003F9072 /* TweetListTableViewControllerView.swift in Sources */,
+				168797DD23849B83003F9072 /* TweetListTableViewController.swift in Sources */,
+				16C103FB2382F76800DD38B9 /* Prediction.swift in Sources */,
 				16C103DC2382F59500DD38B9 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +435,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Birdsong/Birdsong.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Birdsong/Preview Content\"";
 				DEVELOPMENT_TEAM = 9489Q3YVAN;
 				ENABLE_PREVIEWS = YES;
@@ -295,6 +448,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacobcxdev.Birdsong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -304,7 +458,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Birdsong/Birdsong.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Birdsong/Preview Content\"";
 				DEVELOPMENT_TEAM = 9489Q3YVAN;
 				ENABLE_PREVIEWS = YES;
@@ -315,6 +471,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacobcxdev.Birdsong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -342,6 +499,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1687979E23833FF9003F9072 /* XCRemoteSwiftPackageReference "Swifter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattdonnelly/Swifter.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
+		168797A423834015003F9072 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.8;
+			};
+		};
+		168797A72383403C003F9072 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+		168797AA2383404A003F9072 /* XCRemoteSwiftPackageReference "ActiveLabel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jacobcxdev/ActiveLabel.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1687979F23833FFA003F9072 /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1687979E23833FF9003F9072 /* XCRemoteSwiftPackageReference "Swifter" */;
+			productName = Swifter;
+		};
+		168797A523834015003F9072 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 168797A423834015003F9072 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+		168797A82383403C003F9072 /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 168797A72383403C003F9072 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+		168797AB2383404A003F9072 /* ActiveLabel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 168797AA2383404A003F9072 /* XCRemoteSwiftPackageReference "ActiveLabel" */;
+			productName = ActiveLabel;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 16C103CC2382F59500DD38B9 /* Project object */;
 }
