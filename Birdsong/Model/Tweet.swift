@@ -19,7 +19,7 @@ class Tweet: ObservableObject, Identifiable {
     @Published var quotedStatus: Tweet?
     @Published var retweetCount: UInt = 0
     @Published var favouriteCount: UInt = 0
-    @Published var score: Int?
+    @Published var sentiment: Sentiment = .null
     
     init() {
         

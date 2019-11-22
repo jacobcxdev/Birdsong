@@ -14,16 +14,42 @@ enum Sentiment {
     case negative
     case null
     
-    var currentSentiment: (Image, Color) {
+    var state: String {
         switch self {
         case .positive:
-            return (.init(systemName: "hand.thumbsup.fill"), .init("positive"))
+            return "+ve"
         case .neutral:
-            return (.init(systemName: "minus"), .init("neutral"))
+            return "neutral"
         case .negative:
-            return (.init(systemName: "hand.thumbsdown.fill"), .init("negative"))
+            return "−ve"
         default:
-            return (.init(systemName: "arrow.down"), .clear)
+            return "null"
+        }
+    }
+    
+    var image: AnyView {
+        switch self {
+        case .positive:
+            return AnyView(Image(systemName: "hand.thumbsup.fill"))
+        case .neutral:
+            return AnyView(Image(systemName: "minus"))
+        case .negative:
+            return AnyView(Image(systemName: "hand.thumbsdown.fill"))
+        default:
+            return AnyView(Arrow(size: 100, direction: .down))
+        }
+    }
+    
+    var colour: Color {
+        switch self {
+        case .positive:
+            return .init("positive")
+        case .neutral:
+            return .init("neutral")
+        case .negative:
+            return .init("negative")
+        default:
+            return .clear
         }
     }
 }

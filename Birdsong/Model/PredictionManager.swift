@@ -19,25 +19,22 @@ class PredictionManager: ObservableObject {
         DispatchQueue.main.async {
             self.swifter.searchTweet(using: searchTerm, lang: "en", count: 100, tweetMode: .extended, success: { (results, metadata) in
                 var tweets = [Tweet]()
-                var tweetTextArray = [TwitterSentimentClassifierInput]()
-                if let results = results.array {
-                    for tweet in results {
-                        let tweetObject = Tweet(from: tweet)
-                        tweetTextArray.append(TwitterSentimentClassifierInput(text: tweetObject.text))
-                        tweets.append(tweetObject)
-                    }
-                }
+                var score = 50
                 do {
-                    let predictions = try self.classifier.predictions(inputs: tweetTextArray)
-                    var score = 50
-                    for prediction in predictions {
-                        switch prediction.label {
-                        case "Pos":
-                            score += 1
-                        case "Neg":
-                            score -= 1
-                        default:
-                            break
+                    if let results = results.array {
+                        for tweetJSON in results {
+                            let tweet = Tweet(from: tweetJSON)
+                            switch try self.classifier.prediction(text: tweet.text).label {
+                            case "Pos":
+                                tweet.sentiment = .positive
+                                score += 1
+                            case "Neg":
+                                tweet.sentiment = .negative
+                                score -= 1
+                            default:
+                                tweet.sentiment = .neutral
+                            }
+                            tweets.append(tweet)
                         }
                     }
                     let prediction = Prediction(sentiment: {

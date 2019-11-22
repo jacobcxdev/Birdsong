@@ -14,6 +14,7 @@
 		168797B1238340A3003F9072 /* TwitterSentimentClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 168797B0238340A2003F9072 /* TwitterSentimentClassifier.mlmodel */; };
 		168797DD23849B83003F9072 /* TweetListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168797DC23849B83003F9072 /* TweetListTableViewController.swift */; };
 		168797DF2384A077003F9072 /* TweetListTableViewControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168797DE2384A077003F9072 /* TweetListTableViewControllerView.swift */; };
+		168AF4B723882F6300CB639C /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AF4B623882F6300CB639C /* Arrow.swift */; };
 		16C103D82382F59500DD38B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103D72382F59500DD38B9 /* AppDelegate.swift */; };
 		16C103DA2382F59500DD38B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103D92382F59500DD38B9 /* SceneDelegate.swift */; };
 		16C103DC2382F59500DD38B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103DB2382F59500DD38B9 /* ContentView.swift */; };
@@ -39,6 +40,7 @@
 		168797D623846DF7003F9072 /* Birdsong.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Birdsong.entitlements; sourceTree = "<group>"; };
 		168797DC23849B83003F9072 /* TweetListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListTableViewController.swift; sourceTree = "<group>"; };
 		168797DE2384A077003F9072 /* TweetListTableViewControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListTableViewControllerView.swift; sourceTree = "<group>"; };
+		168AF4B623882F6300CB639C /* Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
 		16C103D42382F59500DD38B9 /* Birdsong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birdsong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16C103D72382F59500DD38B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16C103D92382F59500DD38B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				16C103F42382F72300DD38B9 /* ActiveLabelContainerView.swift */,
 				16C103F62382F73B00DD38B9 /* WebView.swift */,
 				168797DE2384A077003F9072 /* TweetListTableViewControllerView.swift */,
+				168AF4B623882F6300CB639C /* Arrow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16C104012382F79C00DD38B9 /* User.swift in Sources */,
+				168AF4B723882F6300CB639C /* Arrow.swift in Sources */,
 				16C103D82382F59500DD38B9 /* AppDelegate.swift in Sources */,
 				16C103F72382F73B00DD38B9 /* WebView.swift in Sources */,
 				16C103F92382F74F00DD38B9 /* PredictionManager.swift in Sources */,
@@ -442,6 +446,7 @@
 				DEVELOPMENT_TEAM = 9489Q3YVAN;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Birdsong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,6 +470,7 @@
 				DEVELOPMENT_TEAM = 9489Q3YVAN;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Birdsong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -15,6 +15,12 @@ struct TweetView: View {
     @EnvironmentObject var tweet: Tweet
     @State private var showingTweet = false
     
+    private var sentiment: Sentiment {
+        get {
+            tweet.sentiment
+        }
+    }
+    
     fileprivate func placeholderImage() -> some View {
         Image(systemName: "person.crop.circle.fill")
             .resizable()
@@ -24,7 +30,6 @@ struct TweetView: View {
     fileprivate func namesTextView() -> some View {
         VStack(alignment: .leading) {
             Text(tweet.user.name)
-                .foregroundColor(Color(tweet.user.profileBackgroundColour))
             Text("@\(tweet.user.screenName)")
         }
     }
@@ -58,20 +63,23 @@ struct TweetView: View {
                 }
             }
                 .clipShape(Circle())
-                .shadow(radius: 5)
+                .overlay(
+                    Circle()
+                        .strokeBorder(sentiment.colour)
+                )
+                .shadow(color: sentiment.colour, radius: 2)
             Divider()
+                .overlay(sentiment.colour)
                 .padding(10)
             VStack(alignment: .leading) {
                 HStack {
                     namesTextView()
-                        .foregroundColor(Color(tweet.user.profileBackgroundColour))
+                    .fixedSize()
                         .padding(5)
-                        .background(Color(UIColor(readableBackgroundFor: tweet.user.profileBackgroundColour)))
-                        .cornerRadius(10)
-                        .shadow(radius: 5)
                     Spacer()
                     VStack {
                         Divider()
+                            .overlay(sentiment.colour)
                     }
                         .padding(.horizontal, 5)
                     Spacer()
@@ -120,8 +128,6 @@ struct TweetView: View {
                 }
             }
         }
-            // TODO: Background as sentiment colour
-//            .background()
             .padding()
     }
 }

@@ -10,10 +10,10 @@ import Foundation
 
 class Prediction: ObservableObject {
     @Published var sentiment: Sentiment
-    @Published var score: Int?
-    @Published var tweets: [Tweet]?
+    @Published var score: Int
+    @Published var tweets: [Tweet]
     
-    init(sentiment: Sentiment, score: Int? = nil, tweets: [Tweet]? = nil) {
+    init(sentiment: Sentiment, score: Int = 50, tweets: [Tweet] = [Tweet]()) {
         self.sentiment = sentiment
         self.score = score
         self.tweets = tweets

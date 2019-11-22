@@ -12,35 +12,12 @@ struct TweetListView: View {
     @EnvironmentObject private var predictionManager: PredictionManager
     
     var body: some View {
-        if predictionManager.prediction.tweets != nil {
-            return AnyView(
-//                TweetListTableViewControllerView()
-                List(predictionManager.prediction.tweets!) { tweet in
-                    TweetView()
-                        .environmentObject(tweet)
-                }
-                    .buttonStyle(PlainButtonStyle())
-                    .animation(.easeInOut(duration: 1))
-//                ScrollView {
-//                    ForEach(predictionManager.prediction.tweets!) { tweet in
-//                        TweetView()
-//                            .environmentObject(tweet)
-//                        Divider()
-//                    }
-//                }
-            )
-        } else {
-            return AnyView(
-                VStack {
-                    Spacer()
-                    Image(systemName: "arrow.up")
-                        .font(.system(size: 100))
-                    Spacer()
-                    Text("Submit a search term first.")
-                    Spacer()
-                }
-            )
+        List(predictionManager.prediction.tweets) { tweet in
+            TweetView()
+                .environmentObject(tweet)
         }
+            .buttonStyle(PlainButtonStyle())
+            .animation(.easeInOut(duration: 1))
     }
 }
 

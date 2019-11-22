@@ -14,60 +14,87 @@ struct ContentView: View {
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     @State private var searchTerm = ""
     
+    private var showingPrediction: Bool {
+        get {
+            predictionManager.prediction.sentiment != .null
+        }
+    }
+    private var sentiment: Sentiment {
+        get {
+            predictionManager.prediction.sentiment
+        }
+    }
+    private var score: Int {
+        get {
+            predictionManager.prediction.score
+        }
+    }
+    
     var body: some View {
-//        NavigationView {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
-                VStack {
-                    Spacer()
-                    predictionManager.prediction.sentiment.currentSentiment.0
+                Spacer()
+                VStack(spacing: 20) {
+                    sentiment.image
                         .font(.system(size: 100))
                         .padding()
-                    Spacer()
-                    TextField("[Input search term]", text: $searchTerm, onEditingChanged: { changed in
-                        if changed && self.predictionManager.prediction.sentiment != .null {
-                            self.predictionManager.prediction = Prediction(sentiment: .null)
-                        }
-                    }, onCommit: {
-                        if !self.searchTerm.isEmpty {
-                            self.predictionManager.predict(self.searchTerm.trimmingCharacters(in: .whitespacesAndNewlines))
-                            self.searchTerm = ""
-                        }
-                        self.kGuardian.slide = 0
-                    })
-                        .multilineTextAlignment(.center)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.webSearch)
+                    if showingPrediction {
+                        Text("\(score)% +ve ⇒ \(sentiment.state)")
+                            .font(.headline)
+                    }
+                }
+                    .foregroundColor(showingPrediction ? .primary : .white)
+                    .shadow(color: Color(.systemBackground).opacity(0.5), radius: 10)
+                Spacer()
+                TextField("[Input search term]", text: $searchTerm, onEditingChanged: { changed in
+                    if changed && self.showingPrediction {
+                        self.predictionManager.prediction = Prediction(sentiment: .null)
+                    }
+                }, onCommit: {
+                    if !self.searchTerm.isEmpty {
+                        self.predictionManager.predict(self.searchTerm.trimmingCharacters(in: .whitespacesAndNewlines))
+                        self.searchTerm = ""
+                    }
+                    self.kGuardian.slide = 0
+                })
+                    .multilineTextAlignment(.center)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.webSearch)
+                    .padding()
+                    .background(GeometryGetter(rect: $kGuardian.rects[0]))
+                    .offset(y: kGuardian.slide)
+                    .shadow(color: Color(.systemBackground).opacity(0.5), radius: 10)
+                    .animation(.spring())
+                    .onAppear {
+                        self.kGuardian.addObserver()
+                    }
+                    .onDisappear {
+                        self.kGuardian.removeObserver()
+                    }
+                Spacer()
+                if showingPrediction {
+                    Arrow(size: 20, direction: .up)
+                    TweetListView()
+                        .cornerRadius(25)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 25)
+                                .strokeBorder(Color(.secondarySystemGroupedBackground), style: .init(lineWidth: 2))
+                        )
+                        .shadow(color: Color(.systemBackground).opacity(0.5), radius: 10)
                         .padding()
-                        .background(GeometryGetter(rect: $kGuardian.rects[0]))
-                        .offset(y: kGuardian.slide)
-                        .animation(.spring())
-                        .onAppear {
-                            self.kGuardian.addObserver()
-                        }
-                        .onDisappear {
-                            self.kGuardian.removeObserver()
-                        }
-//                    NavigationLink(destination: TweetListView()) {
-//                        Text("View Tweets")
-//                    }
-//                        .foregroundColor(.white)
-//                        .padding()
-//                        .background(Color.accentColor)
-//                        .cornerRadius(25)
+                        .frame(height: UIScreen.main.bounds.height * 0.618)
+                } else {
+                    Arrow(size: 100, direction: .up)
+                    Spacer()
+                    Text("Submit a search term first.")
                     Spacer()
                 }
-                    .frame(height: UIScreen.main.bounds.height)
-                TweetListView()
-                    .frame(height: predictionManager.prediction.tweets == nil ? UIScreen.main.bounds.height * 0.382 : UIScreen.main.bounds.height * 0.618)
             }
+            .frame(height: showingPrediction ? UIScreen.main.bounds.height * 1.5 : UIScreen.main.bounds.height * 1.25)
         }
-            .background(predictionManager.prediction.sentiment.currentSentiment.1)
-            .animation(.easeInOut(duration: 1))
-            .edgesIgnoringSafeArea(.all)
-            // TODO: Find a new way of displaying the score
-//            .navigationBarTitle(predictionManager.prediction.score == nil ? "Birdsong" : "\(predictionManager.prediction.score!)%")
-//        }
+        .background(sentiment.colour)
+        .animation(.easeInOut(duration: 1))
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -79,6 +106,6 @@ struct ContentView_Previews: PreviewProvider {
         predictionManager.prediction.tweets = [tweet]
         return ContentView()
             .environmentObject(predictionManager)
-//            .colorScheme(.dark)
+        //            .colorScheme(.dark)
     }
 }
