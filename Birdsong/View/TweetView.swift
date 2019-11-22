@@ -15,15 +15,11 @@ struct TweetView: View {
     @EnvironmentObject var tweet: Tweet
     @State private var userPageDisplayed = false
     @State private var retweetPageDisplayed = false
-    @State private var favouritePageDisplayed = false {
-        didSet {
-            print("https://twitter.com/intent/like?tweet_id=\(self.tweet.id)")
-        }
-    }
+    @State private var favouritePageDisplayed = false
     @State private var tweetPageDisplayed = false {
         didSet {
-            print("https://twitter.com/\(self.user.screenName)/status/\(self.tweet.id)")
-            print(tweet.id)
+            print("URL: https://twitter.com/\(self.user.screenName)/status/\(self.tweet.id)")
+            print("id: \(tweet.id)")
         }
     }
     @State private var headerRect = CGRect()
