@@ -27,16 +27,16 @@ enum Sentiment {
         }
     }
     
-    var image: AnyView {
+    var image: Image? {
         switch self {
         case .positive:
-            return AnyView(Image(systemName: "hand.thumbsup.fill"))
+            return .init(systemName: "hand.thumbsup.fill")
         case .neutral:
-            return AnyView(Image(systemName: "minus"))
+            return .init(systemName: "minus")
         case .negative:
-            return AnyView(Image(systemName: "hand.thumbsdown.fill"))
+            return .init(systemName: "hand.thumbsdown.fill")
         default:
-            return AnyView(Arrow(size: 100, direction: .down))
+            return nil
         }
     }
     

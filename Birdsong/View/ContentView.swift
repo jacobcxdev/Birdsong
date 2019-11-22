@@ -31,20 +31,25 @@ struct ContentView: View {
     }
     
     var body: some View {
+        NavigationView {
         ScrollView(showsIndicators: false) {
             VStack {
                 Spacer()
-                VStack(spacing: 20) {
-                    sentiment.image
-                        .font(.system(size: 100))
-                        .padding()
-                    if showingPrediction {
-                        Text("\(score)% +ve ⇒ \(sentiment.state)")
-                            .font(.headline)
+                if showingPrediction {
+                    VStack(spacing: 20) {
+                        sentiment.image
+                            .font(.system(size: 100))
+                            .padding()
+                        if showingPrediction {
+                            Text("\(score)% +ve ⇒ \(sentiment.state)")
+                                .font(.headline)
+                        }
                     }
-                }
                     .foregroundColor(showingPrediction ? .primary : .white)
                     .shadow(color: Color(.systemBackground).opacity(0.5), radius: 10)
+                } else {
+                    Arrow(size: 100, direction: .down)
+                }
                 Spacer()
                 TextField("[Input search term]", text: $searchTerm, onEditingChanged: { changed in
                     if changed && self.showingPrediction {
@@ -60,6 +65,7 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.webSearch)
+                    .zIndex(.infinity)
                     .padding()
                     .background(GeometryGetter(rect: $kGuardian.rects[0]))
                     .offset(y: kGuardian.slide)
@@ -95,6 +101,7 @@ struct ContentView: View {
         .background(sentiment.colour)
         .animation(.easeInOut(duration: 1))
         .edgesIgnoringSafeArea(.all)
+        }
     }
 }
 

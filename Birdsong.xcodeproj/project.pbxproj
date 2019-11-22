@@ -15,6 +15,8 @@
 		168797DD23849B83003F9072 /* TweetListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168797DC23849B83003F9072 /* TweetListTableViewController.swift */; };
 		168797DF2384A077003F9072 /* TweetListTableViewControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168797DE2384A077003F9072 /* TweetListTableViewControllerView.swift */; };
 		168AF4B723882F6300CB639C /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AF4B623882F6300CB639C /* Arrow.swift */; };
+		168AF4B923883DEB00CB639C /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AF4B823883DEB00CB639C /* SafariView.swift */; };
+		168AF4BD23884ADC00CB639C /* AdaptableWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AF4BC23884ADC00CB639C /* AdaptableWebView.swift */; };
 		16C103D82382F59500DD38B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103D72382F59500DD38B9 /* AppDelegate.swift */; };
 		16C103DA2382F59500DD38B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103D92382F59500DD38B9 /* SceneDelegate.swift */; };
 		16C103DC2382F59500DD38B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C103DB2382F59500DD38B9 /* ContentView.swift */; };
@@ -41,6 +43,8 @@
 		168797DC23849B83003F9072 /* TweetListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListTableViewController.swift; sourceTree = "<group>"; };
 		168797DE2384A077003F9072 /* TweetListTableViewControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListTableViewControllerView.swift; sourceTree = "<group>"; };
 		168AF4B623882F6300CB639C /* Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
+		168AF4B823883DEB00CB639C /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		168AF4BC23884ADC00CB639C /* AdaptableWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptableWebView.swift; sourceTree = "<group>"; };
 		16C103D42382F59500DD38B9 /* Birdsong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birdsong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16C103D72382F59500DD38B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16C103D92382F59500DD38B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,7 +157,9 @@
 				16C103F02382F70400DD38B9 /* TweetView.swift */,
 				16C103F22382F71500DD38B9 /* ActiveLabelView.swift */,
 				16C103F42382F72300DD38B9 /* ActiveLabelContainerView.swift */,
+				168AF4BC23884ADC00CB639C /* AdaptableWebView.swift */,
 				16C103F62382F73B00DD38B9 /* WebView.swift */,
+				168AF4B823883DEB00CB639C /* SafariView.swift */,
 				168797DE2384A077003F9072 /* TweetListTableViewControllerView.swift */,
 				168AF4B623882F6300CB639C /* Arrow.swift */,
 			);
@@ -289,10 +295,12 @@
 				168AF4B723882F6300CB639C /* Arrow.swift in Sources */,
 				16C103D82382F59500DD38B9 /* AppDelegate.swift in Sources */,
 				16C103F72382F73B00DD38B9 /* WebView.swift in Sources */,
+				168AF4B923883DEB00CB639C /* SafariView.swift in Sources */,
 				16C103F92382F74F00DD38B9 /* PredictionManager.swift in Sources */,
 				16C103FF2382F78600DD38B9 /* Tweet.swift in Sources */,
 				16C104032382F7C400DD38B9 /* KeyboardGuardian.swift in Sources */,
 				16C103FD2382F77700DD38B9 /* Sentiment.swift in Sources */,
+				168AF4BD23884ADC00CB639C /* AdaptableWebView.swift in Sources */,
 				16C103F32382F71500DD38B9 /* ActiveLabelView.swift in Sources */,
 				16C103F52382F72400DD38B9 /* ActiveLabelContainerView.swift in Sources */,
 				16C103DA2382F59500DD38B9 /* SceneDelegate.swift in Sources */,

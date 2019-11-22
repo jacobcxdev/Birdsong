@@ -13,11 +13,29 @@ import WebKit
 
 struct TweetView: View {
     @EnvironmentObject var tweet: Tweet
-    @State private var showingTweet = false
+    @State private var userPageDisplayed = false
+    @State private var retweetPageDisplayed = false
+    @State private var favouritePageDisplayed = false {
+        didSet {
+            print("https://twitter.com/intent/like?tweet_id=\(self.tweet.id)")
+        }
+    }
+    @State private var tweetPageDisplayed = false {
+        didSet {
+            print("https://twitter.com/\(self.user.screenName)/status/\(self.tweet.id)")
+            print(tweet.id)
+        }
+    }
+    @State private var headerRect = CGRect()
     
     private var sentiment: Sentiment {
         get {
             tweet.sentiment
+        }
+    }
+    private var user: User {
+        get {
+            tweet.user
         }
     }
     
@@ -29,8 +47,15 @@ struct TweetView: View {
     
     fileprivate func namesTextView() -> some View {
         VStack(alignment: .leading) {
-            Text(tweet.user.name)
-            Text("@\(tweet.user.screenName)")
+            HStack {
+                Text(user.name)
+                if user.verified {
+                    Image(systemName: "checkmark.seal.fill")
+                }
+            }
+            Button("@\(user.screenName)") {
+                self.userPageDisplayed.toggle()
+            }
         }
     }
     
@@ -47,12 +72,12 @@ struct TweetView: View {
     }
     
     var body: some View {
-        HStack(alignment: VerticalAlignment.top) {
+        HStack(alignment: .top) {
             Button(action: {
-
+                self.userPageDisplayed.toggle()
             }) {
-                if tweet.user.profileImageURL != nil {
-                    URLImage(tweet.user.profileImageURL!, placeholder: { _ in
+                if user.profileImageURL != nil {
+                    URLImage(user.profileImageURL!, placeholder: { _ in
                         self.placeholderImage()
                     }) { proxy in
                         proxy.image
@@ -68,13 +93,17 @@ struct TweetView: View {
                         .strokeBorder(sentiment.colour)
                 )
                 .shadow(color: sentiment.colour, radius: 2)
+                .sheet(isPresented: $userPageDisplayed) {
+                    AdaptableWebView(url: "https://twitter.com/\(self.user.screenName)")
+                }
             Divider()
                 .overlay(sentiment.colour)
                 .padding(10)
             VStack(alignment: .leading) {
                 HStack {
                     namesTextView()
-                    .fixedSize()
+                        .frame(maxWidth: headerRect.width * 0.5)
+                        .fixedSize()
                         .padding(5)
                     Spacer()
                     VStack {
@@ -84,31 +113,37 @@ struct TweetView: View {
                         .padding(.horizontal, 5)
                     Spacer()
                     createdAtTextView()
+                        .frame(maxWidth: headerRect.width * 0.4)
+                        .fixedSize()
                 }
                     .font(.caption)
+                    .background(GeometryGetter(rect: $headerRect))
                 TweetTextView()
                 if tweet.quotedStatus != nil {
                     TweetTextView(isQuoted: true)
                 }
                 HStack {
                     Button(action: {
-
+                        self.tweetPageDisplayed.toggle()
                     }) {
                         Image(systemName: "bubble.right")
                     }
                     Spacer()
                     Button(action: {
-
+                        self.retweetPageDisplayed.toggle()
                     }) {
                         HStack {
                             Image(systemName: "arrow.2.squarepath")
-                            Text(tweet.favouriteCount.formatPoints())
+                            Text(tweet.retweetCount.formatPoints())
                         }
                     }
                         .foregroundColor(Color("retweet"))
+                        .sheet(isPresented: $retweetPageDisplayed) {
+                            AdaptableWebView(url: "https://twitter.com/intent/retweet?tweet_id=\(self.tweet.id)")
+                        }
                     Spacer()
                     Button(action: {
-
+                        self.favouritePageDisplayed.toggle()
                     }) {
                         HStack {
                             Image(systemName: "heart")
@@ -116,15 +151,18 @@ struct TweetView: View {
                         }
                     }
                         .foregroundColor(Color("favourite"))
+                        .sheet(isPresented: $favouritePageDisplayed) {
+                            AdaptableWebView(url: "https://twitter.com/intent/like?tweet_id=\(self.tweet.id)")
+                        }
                     Spacer()
                     Button(action: {
-                        self.showingTweet.toggle()
+                        self.tweetPageDisplayed.toggle()
                     }) {
                         Image(systemName: "link.circle")
                     }
-                        .popover(isPresented: $showingTweet) {
-                            WebView(url: "https://twitter.com/\(self.tweet.user.screenName)/status/\(self.tweet.id)")
-                        }
+                    .sheet(isPresented: $tweetPageDisplayed) {
+                        AdaptableWebView(url: "https://twitter.com/\(self.user.screenName)/status/\(self.tweet.id)")
+                    }
                 }
             }
         }
@@ -134,8 +172,8 @@ struct TweetView: View {
 
 struct TweetView_Previews: PreviewProvider {
     static var previews: some View {
-        let user = User(id: 0, name: "Jacob Clayden", screenName: "jcxdev", verified: true, profileImageURL: URL(string: "https://pbs.twimg.com/profile_images/1180201672188010496/oO2juOp4_normal.jpg")!, profileBackgroundColour: UIColor.systemBlue)
-        let tweet = Tweet(createdAt: Date(), id: 1196006297562492933, text: "This is a Tweet. This is a mention @jcxdev. This is a #hashtag.", user: user, inReplyToScreenName: "jcxdev", isQuoteStatus: true, quotedStatus: Tweet(createdAt: Date(), id: 1196006297562492933, text: "This is a quoted Tweet. This is a mention @jcxdev. This is a #hashtag.", user: user, inReplyToScreenName: user.screenName, isQuoteStatus: false, quotedStatus: nil, retweetCount: 999999999, favouriteCount: 999999999), retweetCount: 999999999, favouriteCount: 999999999)
+        let user = User(id: 0, name: "Jacob Claydennnnnnnnnnnnnnnnnnnnnnn", screenName: "jcxdev", verified: true, profileImageURL: URL(string: "https://pbs.twimg.com/profile_images/1180201672188010496/oO2juOp4_normal.jpg")!, profileBackgroundColour: UIColor.systemBlue)
+        let tweet = Tweet(createdAt: Date(), id: 1196006297562492928, text: "This is a Tweet. This is a mention @jcxdev. This is a #hashtag.", user: user, inReplyToScreenName: "jcxdev", isQuoteStatus: true, quotedStatus: Tweet(createdAt: Date(), id: 1196006297562492928, text: "This is a quoted Tweet. This is a mention @jcxdev. This is a #hashtag.", user: user, inReplyToScreenName: user.screenName, isQuoteStatus: false, quotedStatus: nil, retweetCount: 999999999, favouriteCount: 999999999), retweetCount: 999999999, favouriteCount: 999999999)
         return TweetView()
             .environmentObject(tweet)
     }
@@ -144,14 +182,34 @@ struct TweetView_Previews: PreviewProvider {
 struct TweetTextView: View {
     @EnvironmentObject private var tweet: Tweet
     @State var isQuoted = false
+    @State private var modalPageDisplayed = false
+    @State private var modalPageSelection: ActiveType = .mention
+    @State private var mention = "" {
+        didSet {
+            modalPageDisplayed.toggle()
+        }
+    }
+    @State private var hashtag = "" {
+        didSet {
+            modalPageDisplayed.toggle()
+        }
+    }
+    @State private var url = "" {
+        didSet {
+            modalPageDisplayed.toggle()
+        }
+    }
     
     var body: some View {
         ActiveLabelView(text: isQuoted ? tweet.quotedStatus!.text : tweet.text, font: .preferredFont(forTextStyle: isQuoted ? .footnote : .body), mentionColor: UIColor.systemBlue, hashtagColor: UIColor.systemBlue, URLColor: UIColor.systemBlue, handleMentionTap: { mention in
-            print(mention)
+            self.modalPageSelection = .mention
+            self.mention = mention
         }, handleHashtagTap: { hashtag in
-            print(hashtag)
+            self.modalPageSelection = .hashtag
+            self.hashtag = hashtag
         }, handleURLTap: { url in
-            print(url)
+            self.modalPageSelection = .url
+            self.url = url.absoluteString
         })
             .padding(isQuoted ? 10 : 0)
             .overlay( isQuoted ?
@@ -160,6 +218,9 @@ struct TweetTextView: View {
                 : nil
             )
             .padding(.vertical)
+            .sheet(isPresented: self.$modalPageDisplayed) {
+                AdaptableWebView(url: self.modalPageSelection == .url ? self.url : "https://twitter.com/\(self.modalPageSelection == .mention ? self.mention : self.modalPageSelection == .hashtag ? "hashtag/\(self.hashtag)" : "")")
+            }
     }
 
 //    func interactiveText(text: String) -> Text {

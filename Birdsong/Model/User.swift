@@ -33,8 +33,8 @@ class User {
     convenience init(from json: JSON) {
         self.init()
         
-        if let id = json["id"].integer {
-            self.id = UInt(id)
+        if let id = json["id_str"].string {
+            self.id = UInt(id) ?? 0
         }
         if let name = json["name"].string {
             self.name = name

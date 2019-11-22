@@ -17,7 +17,6 @@ struct TweetListView: View {
                 .environmentObject(tweet)
         }
             .buttonStyle(PlainButtonStyle())
-            .animation(.easeInOut(duration: 1))
     }
 }
 

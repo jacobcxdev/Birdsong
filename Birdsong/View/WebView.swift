@@ -10,7 +10,7 @@ import SwiftUI
 import WebKit
 
 struct WebView: UIViewRepresentable {
-    let url: String?
+    let url: URL?
     
     func makeUIView(context: Context) -> WKWebView {
         return WKWebView()
@@ -18,10 +18,8 @@ struct WebView: UIViewRepresentable {
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
         if let url = url {
-            if let url = URL(string: url) {
-                let request = URLRequest(url: url)
-                uiView.load(request)
-            }
+            let request = URLRequest(url: url)
+            uiView.load(request)
         }
     }
 }

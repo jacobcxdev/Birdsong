@@ -11,7 +11,12 @@ import Swifter
 
 class Tweet: ObservableObject, Identifiable {
     @Published var createdAt: Date = Date()
-    @Published var id: UInt = 0
+    @Published var id: UInt = 0 // FIXME: Fix not being set correctly — Only being set when a didSet is here (see below).
+//    {
+//        didSet {
+//
+//        }
+//    }
     @Published var text: String = ""
     @Published var user: User = User()
     @Published var inReplyToScreenName: String?
@@ -40,8 +45,8 @@ class Tweet: ObservableObject, Identifiable {
     convenience init(from json: JSON) {
         self.init()
         
-        if let id = json["id"].integer {
-            self.id = UInt(id)
+        if let id = json["id_str"].string {
+            self.id = UInt(id) ?? 0
         }
         if let createdAt = json["created_at"].string {
             let dateFormatter = DateFormatter()
