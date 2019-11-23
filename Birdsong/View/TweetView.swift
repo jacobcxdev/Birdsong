@@ -18,8 +18,8 @@ struct TweetView: View {
     @State private var favouritePageDisplayed = false
     @State private var tweetPageDisplayed = false {
         didSet {
-            print("URL: https://twitter.com/\(self.user.screenName)/status/\(self.tweet.id)")
-            print("id: \(tweet.id)")
+            print("URL: https://twitter.com/\(self.user.screenName)/status/\(self.tweet.identifier)")
+            print("id: \(tweet.identifier)")
         }
     }
     @State private var headerRect = CGRect()
@@ -135,7 +135,7 @@ struct TweetView: View {
                     }
                         .foregroundColor(Color("retweet"))
                         .sheet(isPresented: $retweetPageDisplayed) {
-                            AdaptableWebView(url: "https://twitter.com/intent/retweet?tweet_id=\(self.tweet.id)")
+                            AdaptableWebView(url: "https://twitter.com/intent/retweet?tweet_id=\(self.tweet.identifier)")
                         }
                     Spacer()
                     Button(action: {
@@ -148,7 +148,7 @@ struct TweetView: View {
                     }
                         .foregroundColor(Color("favourite"))
                         .sheet(isPresented: $favouritePageDisplayed) {
-                            AdaptableWebView(url: "https://twitter.com/intent/like?tweet_id=\(self.tweet.id)")
+                            AdaptableWebView(url: "https://twitter.com/intent/like?tweet_id=\(self.tweet.identifier)")
                         }
                     Spacer()
                     Button(action: {
@@ -157,7 +157,7 @@ struct TweetView: View {
                         Image(systemName: "link.circle")
                     }
                     .sheet(isPresented: $tweetPageDisplayed) {
-                        AdaptableWebView(url: "https://twitter.com/\(self.user.screenName)/status/\(self.tweet.id)")
+                        AdaptableWebView(url: "https://twitter.com/\(self.user.screenName)/status/\(self.tweet.identifier)")
                     }
                 }
             }
@@ -169,7 +169,7 @@ struct TweetView: View {
 struct TweetView_Previews: PreviewProvider {
     static var previews: some View {
         let user = User(id: 0, name: "Jacob Claydennnnnnnnnnnnnnnnnnnnnnn", screenName: "jcxdev", verified: true, profileImageURL: URL(string: "https://pbs.twimg.com/profile_images/1180201672188010496/oO2juOp4_normal.jpg")!, profileBackgroundColour: UIColor.systemBlue)
-        let tweet = Tweet(createdAt: Date(), id: 1196006297562492928, text: "This is a Tweet. This is a mention @jcxdev. This is a #hashtag.", user: user, inReplyToScreenName: "jcxdev", isQuoteStatus: true, quotedStatus: Tweet(createdAt: Date(), id: 1196006297562492928, text: "This is a quoted Tweet. This is a mention @jcxdev. This is a #hashtag.", user: user, inReplyToScreenName: user.screenName, isQuoteStatus: false, quotedStatus: nil, retweetCount: 999999999, favouriteCount: 999999999), retweetCount: 999999999, favouriteCount: 999999999)
+        let tweet = Tweet(createdAt: Date(), identifier: 1196006297562492928, text: "This is a Tweet. This is a mention @jcxdev. This is a #hashtag.", user: user, inReplyToScreenName: "jcxdev", isQuoteStatus: true, quotedStatus: Tweet(createdAt: Date(), identifier: 1196006297562492928, text: "This is a quoted Tweet. This is a mention @jcxdev. This is a #hashtag.", user: user, inReplyToScreenName: user.screenName, isQuoteStatus: false, quotedStatus: nil, retweetCount: 999999999, favouriteCount: 999999999), retweetCount: 999999999, favouriteCount: 999999999)
         return TweetView()
             .environmentObject(tweet)
     }
