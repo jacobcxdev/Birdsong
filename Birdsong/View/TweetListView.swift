@@ -12,11 +12,7 @@ struct TweetListView: View {
     @EnvironmentObject private var predictionManager: PredictionManager
     
     var body: some View {
-        List(predictionManager.prediction.tweets) { tweet in
-            TweetView()
-                .environmentObject(tweet)
-        }
-            .buttonStyle(PlainButtonStyle())
+        TweetListTableViewControllerView()
     }
 }
 
