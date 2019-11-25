@@ -45,7 +45,7 @@ struct ContentView: View {
                                 .font(.headline)
                         }
                     }
-                    .foregroundColor(showingPrediction ? .primary : .white)
+                    .foregroundColor(.white)
                     .shadow(color: Color(.systemBackground).opacity(0.5), radius: 10)
                 } else {
                     Arrow(size: 100, direction: .down)
