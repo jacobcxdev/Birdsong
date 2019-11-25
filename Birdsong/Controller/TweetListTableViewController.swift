@@ -50,7 +50,6 @@ class TweetListTableViewController: UITableViewController {
             
             hostingController.view.edgesToSuperview()
             
-            
             return cell
         }
         return UITableViewCell()
