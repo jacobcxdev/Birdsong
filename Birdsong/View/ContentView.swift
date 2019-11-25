@@ -80,6 +80,7 @@ struct ContentView: View {
                 Spacer()
                 if showingPrediction {
                     Arrow(size: 20, direction: .up)
+                        .foregroundColor(.white)
                     TweetListView()
                         .cornerRadius(25)
                         .overlay(
